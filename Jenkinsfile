@@ -7,6 +7,34 @@ pipeline {
         AWS_DEFAULT_REGION = "ap-south-1"
     }
     stages {
+       stage('Checkout') {
+    steps {
+        git url: 'https://sumesh07:ABIaka2000@github.com/sumesh07/jenkins-pipeline-deploy-to-eks', branch: 'master'
+    }
+}
+
+        stage('Build Docker'){
+            steps{
+                script{
+                    sh '''
+                    echo 'Buid Docker Image'
+                    docker build -t sumesh07/cicd-e2e:${BUILD_NUMBER} .
+                    '''
+                }
+            }
+        }
+
+        stage('Push the artifacts'){
+           steps{
+                script{
+                    sh '''
+                    echo 'Push to Repo'
+                    docker push sumesh07/cicd-e2e:${BUILD_NUMBER}
+                    '''
+                }
+            }
+        }
+        
         stage("Create an EKS Cluster") {
             steps {
                 script {
@@ -17,6 +45,7 @@ pipeline {
                 }
             }
         }
+        
         stage("Deploy to EKS") {
             steps {
                 script {
