@@ -1,7 +1,7 @@
 FROM nginx:latest
 
-# Copy static files from the builder stage to the Nginx directory
-COPY --from=builder /app/static /usr/share/nginx/html/static
+# Copy static files to the Nginx directory
+COPY static /usr/share/nginx/html/static
 
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
