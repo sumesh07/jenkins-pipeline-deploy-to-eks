@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: flask-nginx-app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
-  replicas: 1
+      app: flask-nginx-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: flask-nginx-app
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: flask-nginx-container
+        image: sumesh07/cicd-e2e:latest
         ports:
         - containerPort: 80
