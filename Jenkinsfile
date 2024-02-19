@@ -18,7 +18,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    docker build -t sumeshmsd07@gmail.com/cicd-e2e:${BUILD_NUMBER} .
+                    docker build -t sumeshmsd07/cicd-e2e:${BUILD_NUMBER} .
                     '''
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
                     sh '''
                     echo 'Push to Repo'
                     docker login -u sumeshmsd07@gmail.com -p ABIaka2000
-                    docker push sumeshmsd07@gmail.com/cicd-e2e:${BUILD_NUMBER}
+                    docker push sumeshmsd07/cicd-e2e:${BUILD_NUMBER}
                     '''
                 }
             }
