@@ -18,7 +18,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    docker build -t sumesh07/cicd-e2e:${BUILD_NUMBER} .
+                    sudo docker build -t sumesh07/cicd-e2e:${BUILD_NUMBER} .
                     '''
                 }
             }
