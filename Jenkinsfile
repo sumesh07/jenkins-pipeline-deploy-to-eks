@@ -29,6 +29,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to Repo'
+                    docker login -u sumesh07 -p ABIaka2000@
                     docker push sumesh07/cicd-e2e:${BUILD_NUMBER}
                     '''
                 }
