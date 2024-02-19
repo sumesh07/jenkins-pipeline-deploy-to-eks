@@ -51,7 +51,7 @@ pipeline {
             steps {
                 script {
                     dir('kubernetes') {
-                        sh "aws eks update-kubeconfig --name education-eks-${random_string.suffix.result}"
+                        sh "aws eks update-kubeconfig --name education-eks-7ghjFcTA"
                         sh "kubectl apply -f nginx-deployment.yaml"
                         sh "kubectl apply -f nginx-service.yaml"
                     }
