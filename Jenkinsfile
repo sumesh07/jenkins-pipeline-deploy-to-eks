@@ -12,13 +12,7 @@ pipeline {
         git url: 'https://sumesh07:ABIaka2000@github.com/sumesh07/jenkins-pipeline-deploy-to-eks', branch: 'master'
     }
 }
-        stage('Test image') {
-  
-
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-        }
+     
         stage('Build Docker'){
             steps{
                 script{
