@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: sumesh07/cicd-e2e:${BUILD_NUMBER}
+        image: sumesh07/cicd-e2e:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
